@@ -4,6 +4,7 @@ const mongoose=require('mongoose');
 const dbConfig=require('./configs/db.config');
 //const { init } = require('./models/user.model');
 const userModel=require('./models/user.model');
+const bcrypt=require('bcrypt');
 
 
 
@@ -42,7 +43,7 @@ db.once("open",()=>{
         userId:"admin",
         email:"ps951854@gmail.com",
         userType:"ADMIN",
-        password:"welcome",
+        password:bcrypt.hashSync("welcome1",8)
 
         
     })
